@@ -1,0 +1,186 @@
+{% extends "admin.html" %}
+
+
+{% block body %}
+<div class="container admission-body">
+   
+    {% for item in data %}
+    <div class="row  mb-0">
+        <div class="col  ">
+            <p class="vertical-center " id="studentname">{{item.name}}</p>
+        </div>
+        <div class="col">
+            <p id="department" class="vertical-center ">{{item.dept}}</p>
+        </div>
+            
+        <div class="col "> 
+            <p id="studentid" class="vertical-center ">{{item.rollno}}</p>
+        </div>
+        
+        <div class="col  text-end">
+            <a class="btn btn-food" data-toggle="collapse" href="#collapseExample{{ forloop.counter }}" role="button" aria-expanded="false" aria-controls="collapseExample{{ forloop.counter }}">
+                  view
+            </a>
+        </div>
+    </div>
+    
+    <div class="row  mt-0">
+        <div class="col">
+            <div class="collapse" id="collapseExample{{ forloop.counter }}">
+                <div class="card card-body">
+                    <div class="container-fluid ">
+                        <div class="row ">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">Name</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon1" value='{{item.name}}'readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon2">DOB</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon2" value='{{item.dob}}' readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon3">DEPT</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon3" value='{{item.dept}}' readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon4">ROLL NO</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon4" value='{{item.rollno}}' readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon5">Father Name</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon5" value='{{item.fathers_name}}' readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon6">Mother Name</span>
+                                    </div>
+                                    <input type="text" class="form-control"  aria-describedby="basic-addon6" value='{{item.mothers_name}}' readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon7">Phone</span>
+                                    </div>
+                                    <input type="text" class="form-control"  aria-describedby="basic-addon7" value='{{item.phone}}' readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon8">E-mail</span>
+                                    </div>
+                                    <input type="text" class="form-control"   aria-describedby="basic-addon8" value='{{item.email}}' readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col input-group">
+                                <span class="input-group-text">Address</span>
+                                <textarea class="form-control" aria-label="Address" readonly>{{item.address}}</textarea>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon7">Fee Paid</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col">
+                                <input type="checkbox" name="" class="feescheckbox" onclick="approveDiable('{{forloop.counter}}')" id="feescheckbox{{forloop.counter}}">
+                            </div>
+                            <div class="col-3"></div>
+                            <div class="col">Select Room</div>
+                            
+                            <div class="col selectroom">
+                                <select class="selectpicker showSubtext"    data-live-search="true" data-show-subtext="true" id="selection_room{{forloop.counter}}">
+                                    <option></option>
+                                    
+                                    <optgroup label="Block A">
+                                        {% for room in rooms.A %}
+                                        <option {% if room.present == room.capacity %} disabled="disabled" {% endif %}  data-subtext="Availability: {{room.present}}/{{room.capacity}}">{{room.rooms_id}}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                    
+                                    <optgroup label="Block B">
+                                        {% for room in rooms.B %}
+                                        <option {% if room.present == room.capacity %} disabled="disabled" {% endif %}  data-subtext="Availability: {{room.present}}/{{room.capacity}}">{{room.rooms_id}}</option>
+                                        {% endfor %}
+                                    </optgroup>
+
+                                    <optgroup label="Block C">
+                                        {% for room in rooms.C %}
+                                        <option {% if room.present == room.capacity %} disabled="disabled" {% endif %}  data-subtext="Availability: {{room.present}}/{{room.capacity}}">{{room.rooms_id}}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                    
+                                </select>
+                            </div>                            
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col text-center">
+                                <button class="btn btn-dark" id="appprove_btn{{forloop.counter}}" onclick="doApprove('{{item.email}}', '{{forloop.counter}}' )" disabled>
+                                    APPROVE
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %} 
+
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+    var url = window.location;
+    
+    $('ul.nav a[href= "'+ url.pathname + '"]').addClass('active');
+    $('ul.nav a').filter(function() {
+         return this.href == url;
+    }).parent().addClass('active');
+    });
+</script>
+{% endblock %}

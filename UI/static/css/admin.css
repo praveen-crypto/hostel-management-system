@@ -1,0 +1,316 @@
+:root{
+    --black: rgb(0,0,0);
+    --white: #FFFFFF;
+    --blue1: #3a91e8;
+    --blue3: #9dc8f3;
+    --blue4: #cee4f9;
+    --blue5: #007CC7;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    color: rgb(77, 168, 218);
+    color: rgba(48, 73, 95, 1);
+}
+
+/*===================================================
+                    Navigation
+===================================================*/
+
+
+.navbar{
+    background-image: linear-gradient(#12232E,#12232E);
+}
+nav{
+    font-size: 16px;
+    font-style: none;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;    
+}
+.nav-item{
+    margin:auto 50px;
+}
+.nav-pills .nav-link.active{
+    color:white;
+    border:none;
+    border-radius: 20px;
+    background-color:rgb(48, 73, 95);
+}
+.nav-item:hover{
+    transition:linear;
+    transition-duration: 100ms;
+    transform: scale(1.2);
+    border-radius: 20px;
+    color:white;
+    background-color:rgba(48, 73, 95, 0.514);
+}
+.nav-item a{
+    color:var(--white);
+}
+#logout{
+    cursor: pointer;
+}
+
+/*===================================================
+                    CRM
+===================================================*/
+
+.crm{
+    height: 100%;
+}
+.crm .row{
+    margin-top:10px;
+    margin-bottom: 10px;
+    height: 40vh;
+}
+
+.admission,
+.grieveance{
+    background-color: rgb(157, 200, 243);
+    border:none;
+    border-radius: 5px;
+    margin-top:30px;
+    padding:20px;
+    height: 100%;
+    box-shadow: inset 0px 0px 20px rgb(0,0,0,0.3);
+}
+
+.total-students{
+    margin-top:30px;
+    padding:20px;
+    height: 100%;
+}
+
+.admission-head,
+.grieveance-head{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.admission-head h4,
+.grieveance-head h4{
+    font-stretch: ultra-expanded;
+    text-transform: uppercase;
+    color:#12232E;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+
+.admission-view-btn,
+.grieveance-view-btn{
+    border-radius: 2px;
+    margin-left: auto;
+    background-color:rgba(0, 123, 230, 0.85);
+    color:white;
+    outline:none;
+    font-weight: 500;
+    border:none;
+}
+.admission-view-btn:hover,
+.grieveance-view-btn:hover{
+    background-color:rgb(0, 124, 199);
+    color:white;
+    font-weight: 500;
+    box-shadow: 5px 5px 10px rgb(0,0,0);
+    transform: scale(1.11);
+    transition-delay: 1300ms;
+}
+
+.count{
+    font-size: 150px;
+}
+
+
+
+/*===================================================
+            ADMIN STUDENT-DETAILS STYLE SHEET
+===================================================*/
+
+.student-selecter-column-name > p{
+    padding:9px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.student-selecter-column > .selectpicker{
+    border:1px solid rgb(0,0,0,0.3);
+}
+.student-table{
+    margin-top:1%;
+    padding:1%;
+    border:1px solid rgb(0,0,0,0.3);
+}
+.btn-myself{
+    background-color: rgba(205, 228, 249, 0.6);
+    color:#000;
+    border:none;
+    outline: none;
+}
+.btn-myself:hover{
+    background-color: rgba(205, 228, 249, 0.6);
+    color:#000;
+}
+
+
+
+
+/*===================================================
+                    FOOD STYLE SHEET
+===================================================*/
+
+.food-body{
+    margin-top: 5%;
+    padding:3%;
+}
+
+.select-food .row{
+    height: 26%;
+}
+
+
+.calendar{
+    height: 100%;
+}
+.btn-food{
+    background-image: linear-gradient(220deg, rgb(0, 124, 199), #4da8da) ;
+    color:#FFFFFF;
+    border-radius: 2px;
+}
+.btn-food:hover{
+    transition-delay: 1s;
+    transform: scale(1.11);
+    background-image: linear-gradient(rgb(0, 124, 199), #4da8da) ;
+    color:#FFFFFF;
+}
+.add-food{
+    margin-top: 25%;
+    height: 30%;
+    
+    border:1px solid rgba(128, 128, 128, 0.3);
+}
+.sec-add-food input[type="text"]{
+    background-color: rgba(205, 228, 249, 0.6);
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding:7px;
+} 
+
+.select-food 
+.breakfast,
+.lunch, 
+.dinner{
+    width:100%;
+    height:100%;
+    padding:5%;
+    padding-top:8%;    
+    display: flex;
+    flex-direction: column;
+}
+
+.select-food .dropdown.bootstrap-select.show-tick {
+    width:auto;
+    width: 100%;
+}
+.select-food label{
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: ultra-expanded;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder,
+ .bootstrap-select>.dropdown-toggle.bs-placeholder:active,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+    outline:none;
+    color: #000;
+}
+.filter-option-inner-inner{
+    color:#000;
+}
+
+
+
+
+/*===================================================
+                    ROOM
+===================================================*/
+
+.accomodation-body 
+.a-block, 
+.b-block, 
+.c-block{
+    margin: 5% auto;
+}
+
+.room-1,
+.room-2,
+.room-3{
+    width:70px;
+    height: 70px;
+    /*border:1px solid rgb(105, 175, 0);*/
+    
+}
+
+
+/*===================================================
+                    ADMIN ADMISSION STYLE SHEET
+===================================================*/
+.admission-body{
+    margin-top:2%;
+    padding-left:5%;
+    padding-right:5%;
+}
+.vertical-center {
+    min-height: 100%;    
+    display: flex;
+    align-items: center;
+}
+.card-body > .row{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height:5vh;
+}
+.card-body > .row > .col-2{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.input-group-text{
+    width:120px;
+}
+.input-group textarea{
+    max-height: 15vh;
+}
+.feescheckbox{
+    min-height: 100%;    
+    display: flex;
+    align-items: center;
+    
+    width:25px;
+    height: 25px;
+}
+
+.selectroom p{
+    text-align: end;
+
+}
+.roomid{
+    padding-left:10px;
+}
+
+
+/* --------------------------------------------------------------STUDENT SECTION--------------------------------------------------------------*/
+
+
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+
+
+
+

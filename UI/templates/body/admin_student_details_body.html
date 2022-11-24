@@ -1,0 +1,119 @@
+{% extends "admin.html" %}
+
+{% block body %}
+<div class="container student-details mt-5 pb-5">
+    <div class="row pt-5">
+        <div class="col-3 student-selecter-column-name">
+            <p> Select Column </p> 
+        </div>      
+        <div class="col-9 student-selecter-column"> 
+            <select class="selectpicker" id="column_list" data-style="btn-myself"  data-width="100%" multiple data-live-search="true" >
+            <option value="0" >E-mail</option> 
+            <option value="1">Name</option> 
+            <option value="2">Roll No</option> 
+            <option value="3">Department</option> 
+            <option value="4">Father name</option> 
+            <option value="5">Mother name</option> 
+            <option value="6">Address</option> 
+            <option value="7">Meal Type</option> 
+            <option value="8">Phone</option> 
+            <option value="9">DOB</option> 
+            <option value="10">Gender</option> 
+            <option value="11">Fees Paid</option> 
+            <option value="12">Room Id</option> 
+            <option value="13">Access</option> 
+            </select>
+        </div>
+        
+        
+        <div class="col student-table">
+            <table id="student_table_id" class="display table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>email</th>
+                        <th>name</th>
+                        <th>rollno</th>
+                        <th>dept</th>
+                        <th>fathers_name</th>
+                        <th>mothers_name</th>
+                        <th >address</th>
+                        <th>food_type</th>
+                        <th>phone</th>
+                        <th>dob</th>
+                        <th>gender</th>
+                        <th>fees_paid</th>
+                        <th>rooms_id</th>
+                        <th>access</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+    var url = window.location;
+    $('ul.nav a[href= "'+ url.pathname + '"]').addClass('active');
+    $('ul.nav a').filter(function() {
+        return this.href == url;
+    }).parent().addClass('active');
+    });
+
+    getStudentDetails();
+    $(document).ready(function() {
+        $('#student_table_id').DataTable( {
+            "ajax": "/API/getStudentDetails/",
+            "columns" :[
+                    {"data":"email"},
+                    {"data":"name"},
+                    {"data":"rollno"},
+                    {"data":"dept"},
+                    {"data":"fathers_name"},
+                    {"data":"mothers_name"},
+                    {"data":"address", "width": "20rem"},
+                    {"data":"food_type"},
+                    {"data":"phone"},
+                    {"data":"dob"},
+                    {"data":"gender"},
+                    {"data":"fees_paid"},
+                    {"data":"rooms_id"},
+                    {"data":"access"}
+                ],
+                "scrollX": true,
+                "autoWidth": true
+        } );
+        
+        $('#column_list').selectpicker('val', [0,1,2,3,4,5,7,8,9,10]);
+        changeTableColumn();
+        
+        $('#column_list').change(function() {
+           changeTableColumn();
+        });
+
+        function changeTableColumn()
+        {
+            var table = $('#student_table_id').DataTable();
+
+            for(i=0;i<14;i++)
+            {
+                // Get the column API object
+                var column = table.column(i);    
+                // Toggle the visibility
+                column.visible(false);
+            }
+
+            for(i=0;i<$('#column_list').val().length;i++)
+            {
+                // Get the column API object
+                var column = table.column( $('#column_list').val()[i] );    
+                // Toggle the visibility
+                column.visible(true);
+            }
+        }
+} );
+
+</script>
+{% endblock %} 

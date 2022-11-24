@@ -1,0 +1,81 @@
+{% extends "admin.html" %}
+
+{% block body %}
+<div class="container mt-5">
+
+  <div class="border mt-5"></div>
+
+  <div class="row pt-2">
+    <div class="col-3 ml-5">
+      <h4>Title</h4>
+    </div>
+    <div class="col-3">
+      <h4>Time</h4>
+    </div>
+    <div class="col-3">
+      <h4>Email</h4>
+    </div>
+
+
+  </div>
+  <div class="row pt-2 pb-5">
+
+    <div class="col">
+            
+      <div class="new_grieveance_list border" id="new_grieveance_list">
+
+        <div class="accordion" id="accordionExample">
+          {% for item in new %}
+          <div class="card">
+            <div class="card-header" id="heading{{item.id}}">
+
+              <div class="row mb-1">
+                <div class="col-3">
+                  <p class="lead ml-2 mr-2" id="grieveance_title">{{item.title}}</p> 
+                </div>
+                <div class="col-3">
+                  <p class="lead" id="grieveance_time"> {{item.time}}</p>
+                </div>
+                <div class="col-3">
+                  <p class="lead" id="grieveance_mail_id"> {{item.user_details_email}}  </p>  
+                </div>
+                
+                
+                <button class="btn btn-primary collapsed text-end btn-food" type="button" data-toggle="collapse" data-target="#collapse{{item.id}}" aria-expanded="false" aria-controls="collapse{{item.id}}">
+                  View Body
+                </button>
+              </div>
+            </div>
+            
+            <div id="collapse{{item.id}}" class="collapse " aria-labelledby="heading{{item.id}}" data-parent="#accordionExample">
+              <div class="card-body ">
+                {{item.body}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+
+  *Click view body button to view the Body 
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function () {
+    var url = window.location;
+    $('ul.nav a[href= "' + url.pathname + '"]').addClass('active');
+    $('ul.nav a').filter(function () {
+      return this.href == url;
+    }).parent().addClass('active');
+  });
+
+  fetchgrieveance();
+
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "admin.html" %}
+
+
+{% block body %}
+<div class="container-fluid crm">
+
+  <div class="row">
+
+    <div class="col-6 p-2">
+      <div class="total-students">
+        <canvas id="myChart" width="300" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="col-6 ">
+      <div class="row ml-3 mr-3 mb-3 p-3">
+        <div class="col">
+          <div class="admission">
+            <div class="admission-head">
+              <h4>Admission</h4>
+              <button class="admission-view-btn btn" type="submit">View</button>
+            </div>
+            <div class="total-students-body text-center">
+              <p class="count" id="total-admission-count">0</p>
+              <p class="lead">New Admissions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row ml-3 mr-3 p-3">
+        <div class="col">
+          <div class="grieveance">
+            <div class="grieveance-head">
+              <h4>Grieveance</h4>
+              <button class="grieveance-view-btn btn " type="submit">View </button>
+            </div>
+            <div class="grieveance-body text-center">
+              <span class="count" id="total-grieveance-count">0</span>
+              <p class="lead">Grieveances</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  application_count();
+
+  getStudentCount();
+
+  $(document).ready(function () {
+    var url = window.location;
+    $('ul.nav a[href= "' + url.pathname + '"]').addClass('active');
+    $('ul.nav a').filter(function () {
+      return this.href == url;
+    }).parent().addClass('active');
+  });
+</script>
+{% endblock %}

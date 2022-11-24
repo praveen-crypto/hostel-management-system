@@ -1,0 +1,60 @@
+{% extends "student.html" %}
+
+{% block body %}
+<div class="container food-body">
+    <div class="row">
+        <div class="col p-1">
+            <div id="calendar" class="calendar" ></div>
+        </div>
+        
+        <div class="col-1"></div>
+
+        <div class="col  p-1">
+            <div class="select-food border ">
+                <div class="row m-3">
+                    <div class="col">
+                        <div class="breakfast">
+                            <label for="">Breakfast</label>   
+                            <input type="text" name="" id="breakfast" disabled>                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row  m-3">
+                    <div class="col">
+                        <div class="lunch">
+                            <label for="">Lunch</label>
+                            <input type="text" name="" id="lunch" disabled>                           
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row  m-3">
+                    <div class="col">
+                        <div class="dinner">
+                            <label for="">Dinner</label>
+                            <input type="text" name="" id="dinner" disabled>                               
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="row">
+        <div class="col mt-1">
+            <p class="lead">** Pick a date from the calendar to view the meals</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    loadstudentcalendar();
+</script>
+
+{% endblock %}

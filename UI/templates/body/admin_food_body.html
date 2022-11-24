@@ -1,0 +1,98 @@
+{% extends "admin.html" %}
+
+{% block body %}
+<div class="container-fluid food-body">
+    <div class="row">
+        <div class="col-4 p-1">
+            <div id="calendar" class="calendar" ></div>
+        </div>
+
+        <div class="col-4  p-1">
+            <div class="select-food border ">
+                <div class="row m-3">
+                    <div class="col">
+                        <div class="breakfast">
+                            <label for="">Breakfast</label>
+                            <select class="selectpicker" data-style="btn-myself" multiple data-live-search="true" id="breakfast">
+                                {% for item in fooditem  %}
+                                <option>{{ item }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row  m-3">
+                    <div class="col">
+                        <div class="lunch">
+                            <label for="">Lunch</label>
+                            <select class="selectpicker" data-style="btn-myself" multiple data-live-search="true" id="lunch">
+                                {% for item in fooditem  %}
+                                <option>{{ item }}</option>
+                                {% endfor %}
+                            </select>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row  m-3">
+                    <div class="col">
+                        <div class="dinner">
+                            <label for="">Dinner</label>
+                            <select class="selectpicker" data-style="btn-myself" multiple data-live-search="true" id="dinner">
+                                {% for item in fooditem  %}
+                                <option>{{ item }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>            
+    
+                <div class="row m-3">
+                    <div class="col text-center w-50">
+                        <button class="btn btn-food w-50" id="select_food">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4 p-1 "> 
+            <div class="add-food ">
+                <div class="row mb-5">
+                    <div class="col text-center">
+                        <h4>ADD FOOD ITEM</h4>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center sec-add-food">
+                        <label for="">ITEM NAME</label>
+                        <input type="text" name="add_meal" id="add_meal">
+                        <button class="btn btn-food" id="add_item"> ADD </button>
+                    </div>
+                </div>
+                
+            </div>            
+        </div>
+
+        
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    loadcalendar();
+    $(document).ready(function () {
+    var url = window.location;
+    $('ul.nav a[href= "'+ url.pathname + '"]').addClass('active');
+    $('ul.nav a').filter(function() {
+         return this.href == url;
+    }).parent().addClass('active');
+});
+</script>
+
+{% endblock %}

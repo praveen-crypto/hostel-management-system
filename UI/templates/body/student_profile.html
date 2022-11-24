@@ -1,0 +1,118 @@
+{% extends "student.html" %}
+
+{% block body %}
+<div class="container-fluid mt-5">
+    <div class="row ">
+        <div class="col">
+            <h4>Welcome <span id ="intro_student_name" class="intro_student_name" ></span>, </h4>
+        </div>
+    </div>
+    <div class="row mt-5 ">
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Name</span>
+                </div>
+                <input type="text" class="form-control" id="student_name"  aria-describedby="basic-addon1" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon2">DOB</span>
+                </div>
+                <input type="text" class="form-control" id="student_dob"  aria-describedby="basic-addon2"  readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3" >
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">DEPT</span>
+                </div>
+                <input type="text" class="form-control" id="student_department" aria-describedby="basic-addon3" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon4">ROLL NO</span>
+                </div>
+                <input type="text" class="form-control"  id="student_roll_no" aria-describedby="basic-addon4" readonly >
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon5">Father Name</span>
+                </div>
+                <input type="text" class="form-control" id="student_father_name"  aria-describedby="basic-addon5" readonly >
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon6">Mother Name</span>
+                </div>
+                <input type="text" class="form-control" id="student_mother_name"  aria-describedby="basic-addon6"  readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon7">Phone</span>
+                </div>
+                <input type="text" class="form-control" id="student_phone" aria-describedby="basic-addon7" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon8">E-mail</span>
+                </div>
+                <input type="text" class="form-control" id="student_email"  aria-describedby="basic-addon8" readonly >
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon10">Meal Type</span>
+                </div>
+                <input type="text" class="form-control" id="student_food_type" readonly >
+            </div>
+        </div>        
+        <div class="col ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon9">Room Alloted</span>
+                </div>
+                <input type="text" class="form-control" id="student_room_no" readonly >
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class=" col input-group">
+            <span class="input-group-text">Address</span>
+            <textarea class="form-control" id="student_address" aria-label="Address" readonly></textarea>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script> 
+getStudentDetails();
+</script>
+{% endblock %}
